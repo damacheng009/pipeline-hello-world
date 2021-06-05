@@ -1,10 +1,15 @@
 pipeline {
     agent any
     
+    tools {
+        maven 'mvn-3.5.4'
+    }
+    
     stages {
         stage("Build") {
             steps {
-                echo "Hello World"
+                sh "-Dmaven.test.skip=true clean package"
+                sh "printenv"
             }
         }
     }
