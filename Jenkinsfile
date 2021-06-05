@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                sh "-Dmaven.test.skip=true clean package"
+                sh "mvn -Dmaven.test.skip=true clean package"
                 sh "printenv"
             }
         }
